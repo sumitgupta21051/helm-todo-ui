@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-delete-task
+spec:
+  replicas: {{ .Values.deltask.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-delete-task
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-delete-task
+    spec:
+      containers:
+      - name: {{ .Release.Name }}-delete-task
+        env:
+          - name: CONNECTION_STRING
+            value: {{ .Values.deltask.connection_string }}                                       
+        image: {{ .Values.common.container_registry_url }}/{{ .Values.deltask.image.name}}:{{ .Values.deltask.image.tag }}
+        ports:
+        - containerPort: {{ .Values.deltask.containerport }}

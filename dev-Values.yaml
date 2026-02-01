@@ -1,0 +1,43 @@
+common: 
+  container_registry_url: acrrg1.azurecr.io
+  ingress_class_name: nginx
+
+todoui:
+  replicaCount: 3
+  containerport: 80
+  serviceport: 80
+  host: newui.devops-engineer-adda.store
+  image:
+    name: todo-ui
+    tag: v5
+
+gettask:
+  replicaCount: 3
+  containerport: 8000
+  serviceport: 80
+  host: gettask.devops-engineer-adda.store
+  image:
+    name: gettasktodo
+    tag: v2
+  connection_string: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sqlserver-aks.database.windows.net,1433;Database=databse-sql1;Uid=adminuser;Pwd=thisIsKat11;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+
+deltask:
+  replicaCount: 3
+  containerport: 8000
+  serviceport: 80
+  host: deltask.devops-engineer-adda.store
+  image:
+    name: deletetasktodo
+    tag: v2
+  connection_string: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sqlserver-aks.database.windows.net,1433;Database=databse-sql1;Uid=adminuser;Pwd=thisIsKat11;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+
+
+addtask:
+  replicaCount: 3
+  containerport: 8000
+  serviceport: 80
+  host: addtask.devops-engineer-adda.store
+  image:
+    name: addtasktodo
+    tag: v4
+  connection_string: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sqlserver-aks.database.windows.net,1433;Database=databse-sql1;Uid=adminuser;Pwd=thisIsKat11;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"

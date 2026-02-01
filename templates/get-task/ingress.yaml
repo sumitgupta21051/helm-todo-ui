@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}-get-task-ingress
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+  ingressClassName: {{ .Values.common.ingress_class_name }}
+  rules:
+  - host: {{ .Values.gettask.host }}
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: {{ .Release.Name }}-get-tasks
+            port: 
+              number: {{ .Values.gettask.serviceport }}
