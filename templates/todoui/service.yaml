@@ -7,5 +7,5 @@ spec:
   selector:
     app: {{ .Release.Name }}-todo-ui
   ports:
-  - port: 80
-    targetPort: 80
+  - port: {{ .Values.todoui.serviceport }}
+    targetPort: {{ .Values.todoui.containerport }}
