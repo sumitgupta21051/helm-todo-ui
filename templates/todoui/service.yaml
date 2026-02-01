@@ -5,7 +5,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: {{ .Release.Name }}-todo-ui-svc
+    app: {{ .Release.Name }}-todo-ui
   ports:
   - port: {{ .Values.todoui.serviceport }}
     targetPort: {{ .Values.todoui.containerport }}
