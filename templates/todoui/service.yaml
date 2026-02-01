@@ -8,4 +8,4 @@ spec:
     app: {{ .Release.Name }}-todo-ui
   ports:
   - port: 80
-    targetPort: {{ .Values.todoui.containerport }}
+    targetPort: 80
