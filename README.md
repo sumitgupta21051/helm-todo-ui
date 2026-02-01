@@ -1,2 +1,0 @@
-# helm-todo-ui
-ui
